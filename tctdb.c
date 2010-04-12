@@ -4026,7 +4026,6 @@ static TCMAP *tctdbqryidxfetch(TDBQRY *qry, TDBCOND *cond, TDBIDX *idx){
   return nmap;
 }
 
-
 /* Convert a string to a real number.
    `str' specifies the string.
    The return value is the real number. */
@@ -4064,6 +4063,25 @@ static long double tctdbatof(const char *str){
       base *= 10;
     }
     num += fract;
+  }
+  if(*str == 'e' || *str == 'E') {
+    str++;
+    col++;
+    int esign = 1;
+    int expn = 0; 
+    if(*str == '-'){
+      str++;
+      esign = -1;
+    } else if(*str == '+'){
+      str++;
+    }
+    while(col < TDBNUMCOLMAX && *str != '\0'){
+      if(*str < '0' || *str > '9') break;
+      expn = expn*10 + *str - '0';
+      str++;
+      col++;
+    }
+    num *= exp10(esign*expn);
   }
   return num * sign;
 }
