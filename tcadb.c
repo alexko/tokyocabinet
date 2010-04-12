@@ -3596,7 +3596,7 @@ static bool tcadbmulopen(ADBMUL *mul, const char *name){
   }
   tclistdel(elems);
   bool err = false;
-  char *gpat = tcsprintf("%s%c%s*", path, MYPATHCHR, ADBMULPREFIX);
+  char *gpat = tcsprintf("%s%c%s*%s", path, MYPATHCHR, ADBMULPREFIX, ext);
   TCLIST *cpaths = tcglobpat(gpat);
   tclistsort(cpaths);
   int cnum = TCLISTNUM(cpaths);
