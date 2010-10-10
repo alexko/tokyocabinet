@@ -3391,6 +3391,7 @@ static bool tcbdbrangefwm(TCBDB *bdb, const char *pbuf, int psiz, int max, TCLIS
   assert(bdb && pbuf && psiz >= 0 && keys);
   bool err = false;
   if(max < 0) max = INT_MAX;
+  if(max < 1) return true;
   BDBCUR *cur = tcbdbcurnew(bdb);
   tcbdbcurjumpimpl(cur, pbuf, psiz, true);
   const char *lbuf = NULL;

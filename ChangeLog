@@ -1,3 +1,11 @@
+2010-04-23  Mikio Hirabayashi  <hirarin@gmail.com>
+
+	* tcbdb.c (tcbdbrangefwm): a bug related to empty list was fixed.
+
+	* tcadb.c (tcadbmulopen): a bug related to handling table indices was fixed.
+
+	- Release: 1.4.44
+
 2010-01-26  Mikio Hirabayashi  <hirarin@gmail.com>
 
 	* tcutil.c (tcmapout): a useless condition was fixed.
