@@ -1,6 +1,6 @@
 /*************************************************************************************************
  * The B+ tree database API of Tokyo Cabinet
- *                                                      Copyright (C) 2006-2010 Mikio Hirabayashi
+ *                                                               Copyright (C) 2006-2010 FAL Labs
  * This file is part of Tokyo Cabinet.
  * Tokyo Cabinet is free software; you can redistribute it and/or modify it under the terms of
  * the GNU Lesser General Public License as published by the Free Software Foundation; either
@@ -3201,6 +3201,7 @@ static bool tcbdboutlist(TCBDB *bdb, const char *kbuf, int ksiz){
     uint64_t pid = tcbdbsearchleaf(bdb, kbuf, ksiz);
     if(pid < 1) return false;
     if(!(leaf = tcbdbleafload(bdb, pid))) return false;
+    hlid = 0;
   }
   int ri;
   BDBREC *rec = tcbdbsearchrec(bdb, leaf, kbuf, ksiz, &ri);
@@ -3391,6 +3392,7 @@ static bool tcbdbrangefwm(TCBDB *bdb, const char *pbuf, int psiz, int max, TCLIS
   assert(bdb && pbuf && psiz >= 0 && keys);
   bool err = false;
   if(max < 0) max = INT_MAX;
+  if(max < 1) return true;
   BDBCUR *cur = tcbdbcurnew(bdb);
   tcbdbcurjumpimpl(cur, pbuf, psiz, true);
   const char *lbuf = NULL;
