@@ -3201,6 +3201,7 @@ static bool tcbdboutlist(TCBDB *bdb, const char *kbuf, int ksiz){
     uint64_t pid = tcbdbsearchleaf(bdb, kbuf, ksiz);
     if(pid < 1) return false;
     if(!(leaf = tcbdbleafload(bdb, pid))) return false;
+    hlid = 0;
   }
   int ri;
   BDBREC *rec = tcbdbsearchrec(bdb, leaf, kbuf, ksiz, &ri);

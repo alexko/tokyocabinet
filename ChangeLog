@@ -1,3 +1,9 @@
+2010-04-27  Mikio Hirabayashi  <hirarin@gmail.com>
+
+	* tcbdb.c (tcbdboutlist): a bug related to reorganizing tree was fixed.
+
+	- Release: 1.4.45
+
 2010-04-23  Mikio Hirabayashi  <hirarin@gmail.com>
 
 	* tcbdb.c (tcbdbrangefwm): a bug related to empty list was fixed.
