@@ -1,3 +1,11 @@
+2010-08-15  FAL Labs  <info@fallabs.com>
+
+	* tchdb.cc (tchdbfbpmerge): size checking was added.
+
+	* tcbdb.cc (tcbdbrangeimpl): a bug of dead locking was fixed.
+
+	- Release: 1.4.47
+
 2010-08-01  FAL Labs  <info@fallabs.com>
 
 	- site documents were modified.
