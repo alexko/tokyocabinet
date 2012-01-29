@@ -312,13 +312,9 @@ then
   if uname | grep Darwin >/dev/null
   then
     MYLIBRARYFILES="$MYLIBRARYFILES libtokyocabinet.$MYLIBVER.$MYLIBREV.0.dylib"
-    MYLIBRARYFILES="$MYLIBRARYFILES libtokyocabinet.$MYLIBVER.dylib"
-    MYLIBRARYFILES="$MYLIBRARYFILES libtokyocabinet.dylib"
     MYLDLIBPATHENV="DYLD_LIBRARY_PATH"
   else
     MYLIBRARYFILES="$MYLIBRARYFILES libtokyocabinet.so.$MYLIBVER.$MYLIBREV.0"
-    MYLIBRARYFILES="$MYLIBRARYFILES libtokyocabinet.so.$MYLIBVER"
-    MYLIBRARYFILES="$MYLIBRARYFILES libtokyocabinet.so"
   fi
 fi
 
